@@ -1,4 +1,5 @@
 #console
 #include<RGBALib.sbp>
 
-printf(ex"hello world by RGBALib2")
+printf(ex"hello world by RGBALib2\n")
+printf(ex"キャッシュ効いてる？\n")
