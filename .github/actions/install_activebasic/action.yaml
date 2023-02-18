@@ -7,7 +7,6 @@ runs:
       with:
         path: .\.build\ActiveBasic
         key: fixed-cache-key
-      shell: powershell
 
     - name: install activebasic
       if: steps.active_basic_compile_env.outputs.cache-hit != 'true'
@@ -25,7 +24,6 @@ runs:
       with:
         repository: RGBA-CRT/RGBALib
         path: .\.build/RGBALib
-      shell: powershell
         
     - name: copy RGBALib
       if: steps.active_basic_compile_env.outputs.cache-hit != 'true'
