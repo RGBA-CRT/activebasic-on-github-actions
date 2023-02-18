@@ -22,11 +22,15 @@ jobs:
           
       - name: build app
         run: |
+          .\screenshot.ps1 test1.png 
           .\.build\ActiveBasic\BasicCompiler.exe helloworld_rgbalib.abp ./helloworld_rgbalib.exe /wnd:0
+          .\screenshot.ps1 test2.png 
           tree /F
       
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v3
         with:
           name:  activebasic-on-github-actions-bin
-          path: .\helloworld_rgbalib.exe
+          path: |
+            .\helloworld_rgbalib.exe
+            *.png
