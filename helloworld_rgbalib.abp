@@ -1,0 +1,4 @@
+#console
+#include<RGBALib.sbp>
+
+printf(ex"hello world by RGBALib2")
