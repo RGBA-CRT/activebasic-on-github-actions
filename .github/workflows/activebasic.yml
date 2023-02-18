@@ -20,6 +20,7 @@ jobs:
     # The type of runner that the job will run on
     #runs-on: windows-latest
     runs-on: self-hosted 
+    timeout-minutes: 15
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -51,3 +52,10 @@ jobs:
 
       - name: list
         run: tree /F
+      
+      - name: 'Upload Artifact'
+        uses: actions/upload-artifact@v3
+        with:
+          name: exe
+          path: .\helloworld_rgbalib.exe
+          retention-days: 5
