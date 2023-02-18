@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         
-      - name: Cache node_modules
+      - name: Cache ActiveBasic compiler
         id: active_basic_compile_env
         uses: actions/cache@v2
         with:
@@ -25,7 +25,7 @@ jobs:
           key: fixed-cache-key
 
       - name: install activebasic
-        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
+        if: steps.active_basic_compile_env.outputs.cache-hit != 'true'
         run: |
           mkdir .build
           cd .build
@@ -34,17 +34,17 @@ jobs:
           del .\ab424.zip
           
       - name: checkout RGBALib
-        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
+        if: steps.active_basic_compile_env.outputs.cache-hit != 'true'
         uses: actions/checkout@v3
         with:
           repository: RGBA-CRT/RGBALib
           path: .\.build/RGBALib
           
       - name: copy RGBALib
-        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
+        if: steps.active_basic_compile_env.outputs.cache-hit != 'true'
         run: |
           copy .\.build\RGBALib\*.sbp ./.build\ActiveBasic\Include\
-          Remove-Item \.build\RGBALib -Recurse 
+          Remove-Item .\.build\RGBALib -Recurse 
           
       - name: build app
         run: .\.build\ActiveBasic\BasicCompiler.exe helloworld_rgbalib.abp /wnd:0
