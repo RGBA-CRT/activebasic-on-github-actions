@@ -19,9 +19,9 @@ jobs:
         
       - name: Cache ActiveBasic compiler
         id: active_basic_compile_env
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
-          path: .work
+          path: .work/ActiveBasic
           key: fixed-cache-key
 
       - name: install activebasic
@@ -44,7 +44,6 @@ jobs:
         if: steps.active_basic_compile_env.outputs.cache-hit != 'true'
         run: |
           copy .\.build\RGBALib\*.sbp ./.build\ActiveBasic\Include\
-          Remove-Item .\.build\RGBALib -Recurse 
           
       - name: build app
         run: .\.build\ActiveBasic\BasicCompiler.exe helloworld_rgbalib.abp /wnd:0
@@ -54,4 +53,3 @@ jobs:
         with:
           name:  activebasic-on-github-actions-bin
           path: .\helloworld_rgbalib.exe
-          retention-days: 5
