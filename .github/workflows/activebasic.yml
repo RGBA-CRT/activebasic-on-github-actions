@@ -10,8 +10,8 @@ on:
 
 jobs:
   build:
-    runs-on: windows-2019
-    # runs-on: self-hosted 
+    # runs-on: windows-2019
+    runs-on: self-hosted 
     timeout-minutes: 30
 
     steps:
