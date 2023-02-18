@@ -21,4 +21,5 @@ $hwnd = [Win32.Utils]::GetForegroundWindow()
 $hwnd_hex = $hwnd.ToString("X").PadLeft(8,'0')
 echo $hwnd
 echo $hwnd_hex
-.\.build\ActiveBasic\BasicCompiler.exe helloworld_rgbalib.abp helloworld_rgbalib.exe /wnd:$hwnd_hex /clip_compile_view
+echo "./stracent -f stFilter.txt .\.build\ActiveBasic\BasicCompiler.exe helloworld_rgbalib.abp helloworld_rgbalib.exe /wnd:$hwnd_hex /clip_compile_view"
+./stracent -f stFilter.txt .\.build\ActiveBasic\BasicCompiler.exe helloworld_rgbalib.abp helloworld_rgbalib.exe /wnd:$hwnd_hex /clip_compile_view
