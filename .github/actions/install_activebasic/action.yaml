@@ -1,0 +1,33 @@
+runs:
+  using: "Composite"
+  steps:
+    - name: Cache ActiveBasic compiler
+      id: active_basic_compile_env
+      uses: actions/cache@v3
+      with:
+        path: .\.build\ActiveBasic
+        key: fixed-cache-key
+      shell: pwsh
+
+    - name: install activebasic
+      if: steps.active_basic_compile_env.outputs.cache-hit != 'true'
+      run: |
+        mkdir .build
+        cd .build
+        Invoke-WebRequest -Uri https://dev.activebasic.com/ver4_downloads/ab424.zip -OutFile .\ab424.zip
+        7z x .\ab424.zip
+        del .\ab424.zip
+      shell: pwsh
+        
+    - name: checkout RGBALib
+      if: steps.active_basic_compile_env.outputs.cache-hit != 'true'
+      uses: actions/checkout@v3
+      with:
+        repository: RGBA-CRT/RGBALib
+        path: .\.build/RGBALib
+      shell: pwsh
+        
+    - name: copy RGBALib
+      if: steps.active_basic_compile_env.outputs.cache-hit != 'true'
+      run: copy .\.build\RGBALib\*.sbp ./.build\ActiveBasic\Include\
+      shell: pwsh
