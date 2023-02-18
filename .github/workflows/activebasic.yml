@@ -32,6 +32,7 @@ jobs:
       - name: install activebasic
         run: |
           Invoke-WebRequest -Uri https://dev.activebasic.com/ver4_downloads/ab424.zip
+          tree /F
           7z x ab424.zip
           
       - name: checkout RGBALib
