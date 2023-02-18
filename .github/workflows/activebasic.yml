@@ -28,10 +28,13 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
-
+        
       - name: install activebasic
         run: |
-          Invoke-WebRequest -Uri https://dev.activebasic.com/ver4_downloads/ab424.zip
+          mkdir .work
+          cd .work
+          tree /F
+          Invoke-WebRequest -Uri https://dev.activebasic.com/ver4_downloads/ab424.zip -OutFile .\ab424.zip
           tree /F
           7z x ab424.zip
           
