@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Prepare ActiveBasic
-        uses: .github/actions/install_activebasic
+        uses: ./.github/actions/install_activebasic
           
       - name: build app
         run: .\.build\ActiveBasic\BasicCompiler.exe helloworld_rgbalib.abp /wnd:0
