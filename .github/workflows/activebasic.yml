@@ -33,5 +33,5 @@ jobs:
         with:
           name:  activebasic-on-github-actions-bin
           path: |
-            .\.build\helloworld_rgbalib.exe
+            ./helloworld_rgbalib.exe
             *.png
