@@ -23,7 +23,8 @@ jobs:
       - name: build app
         run: |
           .\screenshot.ps1 test1.png 
-          ./stracent -f stFilter.txt .\.build\ActiveBasic\BasicCompiler.exe helloworld_rgbalib.abp ./build/helloworld_rgbalib.exe /wnd:0
+          #./stracent -f stFilter.txt .\.build\ActiveBasic\BasicCompiler.exe helloworld_rgbalib.abp ./build/helloworld_rgbalib.exe /wnd:0
+          ./build.ps1
           .\screenshot.ps1 test2.png 
           tree /F
       
