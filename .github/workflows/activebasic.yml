@@ -23,7 +23,7 @@ jobs:
       - name: build app
         run: |
           .\screenshot.ps1 test1.png 
-          .\.build\ActiveBasic\BasicCompiler.exe helloworld_rgbalib.abp ./helloworld_rgbalib.exe /wnd:0
+          .\.build\ActiveBasic\BasicCompiler.exe helloworld_rgbalib.abp ./helloworld_rgbalib.exe 
           .\screenshot.ps1 test2.png 
           tree /F
       
