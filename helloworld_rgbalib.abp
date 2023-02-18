@@ -3,3 +3,4 @@
 
 printf(ex"hello world by RGBALib2\n")
 printf(ex"キャッシュ効いてる？\n")
+printf(ex"キャッシュ効いてるよね？？？？\n")
