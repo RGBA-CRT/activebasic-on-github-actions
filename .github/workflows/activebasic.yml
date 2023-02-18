@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: build_ab
+name: Build
 
 # Controls when the workflow will run
 on:
@@ -33,29 +33,28 @@ jobs:
         
       - name: install activebasic
         run: |
+          mkdir .build
+          cd .build
           Invoke-WebRequest -Uri https://dev.activebasic.com/ver4_downloads/ab424.zip -OutFile .\ab424.zip
-          tree /F
           7z x .\ab424.zip
+          del .\ab424.zip
           
       - name: checkout RGBALib
         uses: actions/checkout@v3
         with:
           repository: RGBA-CRT/RGBALib
-          path: RGBALib
+          path: .\.build/RGBALib
           
-      - name: copy .\RGBALib
-        run: copy .\RGBALib\*.sbp .\ActiveBasic\Include\
+      - name: copy RGBALib
+        run: copy .\.build\RGBALib\*.sbp ./build\ActiveBasic\Include\
           
       # Runs a set of commands using the runners shell
       - name: build app
-        run: .\ActiveBasic\BasicCompiler.exe helloworld_rgbalib.abp /wnd:0
-
-      - name: list
-        run: tree /F
+        run: .\.build\ActiveBasic\BasicCompiler.exe helloworld_rgbalib.abp /wnd:0
       
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v3
         with:
-          name: exe
+          name:  activebasic-on-github-actions-bin
           path: .\helloworld_rgbalib.exe
           retention-days: 5
