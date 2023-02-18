@@ -21,7 +21,7 @@ jobs:
         id: active_basic_compile_env
         uses: actions/cache@v3
         with:
-          path: .work/ActiveBasic
+          path: .\.build\ActiveBasic
           key: fixed-cache-key
 
       - name: install activebasic
