@@ -1,6 +1,7 @@
 #console
-#include<RGBALib.sbp>
+' #include<RGBALib.sbp>
 
-printf(ex"hello world by RGBALib2\n")
-printf(ex"キャッシュ効いてる？\n")
-printf(ex"キャッシュ効いてるよね？？？？\n")
+' printf(ex"hello world by RGBALib2\n")
+' printf(ex"キャッシュ効いてる？\n")
+' printf(ex"キャッシュ効いてるよね？？？？\n")
+Print "test"
