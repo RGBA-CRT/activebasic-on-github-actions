@@ -14,6 +14,7 @@ $code = @'
     public static extern IntPtr GetWindowThreadProcessId(IntPtr hWnd, out int ProcessId);
 '@
 .\.build\ActiveBasic\ProjectEditor.exe
+./stracent .\.build\ActiveBasic\ProjectEditor.exe
 Add-Type $code -Name Utils -Namespace Win32
 $myPid = [IntPtr]::Zero;
 
