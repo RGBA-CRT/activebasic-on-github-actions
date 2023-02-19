@@ -13,13 +13,13 @@ $code = @'
     [DllImport("user32.dll")]
     public static extern IntPtr GetWindowThreadProcessId(IntPtr hWnd, out int ProcessId);
 '@
-.\.build\ActiveBasic\ProjectEditor.exe
+.\.build\ActiveBasic\ProjectEditor.exe helloworld_rgbalib.abp
+Start-Sleep -s 1
 [System.Windows.Forms.SendKeys]::SendWait("{ENTER}")
-start powershell -WindowStyle Minimized  ".\screenshot.ps1 test7.png"
-./stracent .\.build\ActiveBasic\ProjectEditor.exe
 start powershell -WindowStyle Minimized  ".\screenshot.ps1 test8.png"
-.\.build\ActiveBasic\ProjectEditor.exe
+.\.build\ActiveBasic\ProjectEditor.exe helloworld_rgbalib.abp
 
+start powershell -WindowStyle Minimized  ".\screenshot.ps1 test9.png"
 Add-Type $code -Name Utils -Namespace Win32
 $myPid = [IntPtr]::Zero;
 
