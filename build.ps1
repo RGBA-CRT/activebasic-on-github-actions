@@ -38,7 +38,7 @@ start powershell -WindowStyle Minimized  ".\screenshot.ps1 test9.png"
 # start powershell -WindowStyle Minimized  ".\screenshot.ps1 test5.png"
 # ./stracent -f stFilter.txt .\.build\ActiveBasic\BasicCompiler.exe helloworld_rgbalib.abp helloworld_rgbalib.exe /wnd:$hwnd_hex /clip_compile_view
 # start powershell -WindowStyle Minimized  ".\screenshot.ps1 test6.png"
-
+.\.build\ActiveBasic\BasicCompiler.exe
 
 Start-Sleep -s 1
 
