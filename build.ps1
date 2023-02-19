@@ -13,7 +13,7 @@ $code = @'
     [DllImport("user32.dll")]
     public static extern IntPtr GetWindowThreadProcessId(IntPtr hWnd, out int ProcessId);
 '@
-
+.\.build\ActiveBasic\ProjectEditor.exe
 Add-Type $code -Name Utils -Namespace Win32
 $myPid = [IntPtr]::Zero;
 
@@ -22,4 +22,6 @@ $hwnd_hex = $hwnd.ToString("X").PadLeft(8,'0')
 echo $hwnd
 echo $hwnd_hex
 echo "./stracent -f stFilter.txt .\.build\ActiveBasic\BasicCompiler.exe helloworld_rgbalib.abp helloworld_rgbalib.exe /wnd:$hwnd_hex /clip_compile_view"
+start powershell -WindowStyle Minimized  ".\screenshot.ps1 test5.png"
 ./stracent -f stFilter.txt .\.build\ActiveBasic\BasicCompiler.exe helloworld_rgbalib.abp helloworld_rgbalib.exe /wnd:$hwnd_hex /clip_compile_view
+start powershell -WindowStyle Minimized  ".\screenshot.ps1 test6.png"
