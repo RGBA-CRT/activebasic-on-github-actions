@@ -15,7 +15,7 @@ $code = @'
 '@
 
 Add-Type -AssemblyName System.Windows.Forms
-mkdir .\.build\ActiveBasic\UserSetting
+# mkdir .\.build\ActiveBasic\UserSetting
 copy *.ini .\.build\ActiveBasic\UserSetting
 .\.build\ActiveBasic\ProjectEditor.exe
 Start-Sleep -s 1
