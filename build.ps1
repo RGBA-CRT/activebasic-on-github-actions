@@ -14,7 +14,12 @@ $code = @'
     public static extern IntPtr GetWindowThreadProcessId(IntPtr hWnd, out int ProcessId);
 '@
 .\.build\ActiveBasic\ProjectEditor.exe
+[System.Windows.Forms.SendKeys]::SendWait("{ENTER}")
+start powershell -WindowStyle Minimized  ".\screenshot.ps1 test7.png"
 ./stracent .\.build\ActiveBasic\ProjectEditor.exe
+start powershell -WindowStyle Minimized  ".\screenshot.ps1 test8.png"
+.\.build\ActiveBasic\ProjectEditor.exe
+
 Add-Type $code -Name Utils -Namespace Win32
 $myPid = [IntPtr]::Zero;
 
