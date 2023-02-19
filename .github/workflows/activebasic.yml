@@ -19,6 +19,9 @@ jobs:
 
       - name: Prepare ActiveBasic
         uses: ./.github/actions/install_activebasic
+
+      - name: Prepare ActiveBasic2
+        run: copy ./BasicCompiler.exe .\.build\ActiveBasic\BasicCompiler.exe
           
       - name: build app
         run: |
