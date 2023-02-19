@@ -16,9 +16,8 @@ $code = @'
 .\.build\ActiveBasic\ProjectEditor.exe helloworld_rgbalib.abp
 Start-Sleep -s 1
 [System.Windows.Forms.SendKeys]::SendWait("{ENTER}")
-start powershell -WindowStyle Minimized  ".\screenshot.ps1 test8.png"
-.\.build\ActiveBasic\ProjectEditor.exe helloworld_rgbalib.abp
-
+Start-Sleep -s 1
+[System.Windows.Forms.SendKeys]::SendWait("{F7}")
 start powershell -WindowStyle Minimized  ".\screenshot.ps1 test9.png"
 Add-Type $code -Name Utils -Namespace Win32
 $myPid = [IntPtr]::Zero;
@@ -31,3 +30,10 @@ echo "./stracent -f stFilter.txt .\.build\ActiveBasic\BasicCompiler.exe hellowor
 start powershell -WindowStyle Minimized  ".\screenshot.ps1 test5.png"
 ./stracent -f stFilter.txt .\.build\ActiveBasic\BasicCompiler.exe helloworld_rgbalib.abp helloworld_rgbalib.exe /wnd:$hwnd_hex /clip_compile_view
 start powershell -WindowStyle Minimized  ".\screenshot.ps1 test6.png"
+
+
+Start-Sleep -s 1
+
+[System.Windows.Forms.SendKeys]::SendWait("{F5}")
+
+Start-Sleep -s 1
