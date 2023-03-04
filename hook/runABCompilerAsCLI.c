@@ -3,8 +3,24 @@
 
 #include <shlwapi.h>
 #include <windows.h>
+#include <signal.h>
+
+volatile sig_atomic_t e_flag = 0;
+volatile int g_sig = 0;
+
+void abrt_handler(int sig){
+  printf("signal=%d\n",sig);
+}
 
 int main(int argc, char *argv[]) {
+  if ( signal(SIGABRT, abrt_handler) == SIG_ERR ) exit(1);
+  if ( signal(SIGILL, abrt_handler) == SIG_ERR ) exit(1);
+  if ( signal(SIGTERM, abrt_handler) == SIG_ERR ) exit(1);
+  if ( signal(SIGINT, abrt_handler) == SIG_ERR ) exit(1);
+  if ( signal(SIGFPE, abrt_handler) == SIG_ERR ) exit(1);
+  if ( signal(SIGSEGV, abrt_handler) == SIG_ERR ) exit(1);
+  if ( signal(SIGBREAK, abrt_handler) == SIG_ERR ) exit(1);
+
   char dllpath[MAX_PATH] = {0};
   GetModuleFileName(NULL, dllpath, sizeof(dllpath));
   PathRemoveFileSpec(dllpath);
