@@ -1,3 +1,3 @@
-
-cd .\.build\ActiveBasic\
+pushd .\.build\ActiveBasic\
 ..\..\hook\runABCompilerAsCLI.exe
+popd
