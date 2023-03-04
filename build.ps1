@@ -1,3 +1,3 @@
 
 cd .\.build\ActiveBasic\
-.\hook\runABCompilerAsCLI.exe
+..\..\hook\runABCompilerAsCLI.exe
